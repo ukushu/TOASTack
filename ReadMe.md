@@ -57,6 +57,36 @@ Toaster.shared.config.edge = .bottom
 
 * Also you can create your own toast design, just look how works ToastSample.
 
+## How to create more awesome custom designs?
+
+`ToastSample2` from `ToastSample.swift` file shows you how to create:
+* custom design
+* animated icon
+* do data insertion into toast
+* dismiss by horizontal swipe in any direction
+
+Lets implement random toast generator:
+```
+func createRandomToast() {
+    let title = ["Hello", "Title", "You miss the call", "Banana", "I'm waiting for you", "Why so sad?"]
+        .randomElement()!
+    let sf = ["bell", "bell.and.waves.left.and.right.fill","music.note","exclamationmark.3","exclamationmark.shield"]
+        .randomElement()!
+    let color = [Color.black, Color.blue, Color.red, Color.brown].randomElement()!
+    
+    let toastData = ToastData1(title: title, descr: "Some descr text blablabla bla", sfSymbol: sf, color: color)
+    
+    Toaster.shared
+        .make { id in
+            // custom design of toast
+            ToastSample2(delete: { Toaster.shared.delete(id: id) })
+                // Put data to display into toast
+                .environmentObject(toastData)
+        }
+}
+```
+result:
+
 
 
 [1]: https://i.sstatic.net/wJLOGVY8.gif
