@@ -67,7 +67,7 @@ Toaster.shared.config.edge = .bottom
 
 Lets implement random toast generator:
 ```
-func createRandomToast() {
+func makeRandomToast() {
     let title = ["Hello", "Title", "You miss the call", "Banana", "I'm waiting for you", "Why so sad?"]
         .randomElement()!
     let sf = ["bell", "bell.and.waves.left.and.right.fill","music.note","exclamationmark.3","exclamationmark.shield"]
@@ -86,6 +86,9 @@ func createRandomToast() {
 }
 ```
 result:
+
+![IMG_8529](https://github.com/user-attachments/assets/682e0018-419b-4f1e-b76a-8c04c0ce81d4)
+
 
 
 
