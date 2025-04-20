@@ -61,7 +61,7 @@ Check `ToastSample2` from `ToastSample.swift`. It shows you how to create:
 * do data insertion into toast
 * dismiss by horizontal swipe in any direction
 
-Lets implement random toast generator:
+Lets implement "random toast generator" using `ToastSample2` view:
 ```
 func makeRandomToast() {
     let title = ["Hello", "Title", "You miss the call", "Banana", "I'm waiting for you", "Why so sad?"]
