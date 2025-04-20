@@ -17,14 +17,16 @@ MainView()
     .applyToaster()
 ```
 
-2) Make your own design of ToastView or use ToastSample
+2) Make your own design of ToastView or use `ToastSample1`, `ToastSample2`
 
-3) Make some toast:
+3) Add toast to stack of toasts:
 ```
 Button(action: {
+    // HERE
     Toaster.shared.make { id in
-        ToastSample(delete: { Toaster.shared.delete(id: id) })
+        ToastSample1(delete: { Toaster.shared.delete(id: id) })
     }
+    // /HERE
 }) {
     Text(verbatim: "Make toast for me!")
 }
@@ -34,15 +36,11 @@ And that’s it.
 
 Seriously — nothing else needed.
 
-As simple as it gets.
-
+This is result:
 
 [![enter image description here][1]][1]
 
 [![enter image description here][2]][2]
-
-
-  
 
 
 
@@ -55,11 +53,9 @@ Toaster.shared.config.edge = .bottom
 //... and other
 ```
 
-* Also you can create your own toast design, just look how works ToastSample.
-
 ## How to create more awesome custom designs?
 
-`ToastSample2` from `ToastSample.swift` file shows you how to create:
+Check `ToastSample2` from `ToastSample.swift`. It shows you how to create:
 * custom design
 * animated icon
 * do data insertion into toast
