@@ -6,8 +6,8 @@ https://github.com/ukushu/TOASTack.git
 ```
 
 Works on:
-* iOS
-* macOS
+* iOS >= .v16
+* macOS >= .v13
 
 
 # How to use:
