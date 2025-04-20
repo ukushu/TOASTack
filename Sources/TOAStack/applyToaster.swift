@@ -13,17 +13,19 @@ struct ToasterMod: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-//            .makeFullyIntaractable()
-//            .overlay {
-//                Rectangle()
-//                    .fill( .black.opacity(model.toasts.count > 0 ? 0.5 : 0) )
-//                    .padding(-50)
-//            }
-//            .onTapGesture {
-//                withAnimation {
-//                    model.toasts = []
-//                }
-//            }
+            .if(model.config.dimOnToast) {
+                $0.makeFullyIntaractable()
+                    .overlay {
+                        Rectangle()
+                            .fill( .black.opacity(model.toasts.count > 0 ? 0.5 : 0) )
+                            .padding(-50)
+                    }
+                    .onTapGesture {
+                        withAnimation {
+                            model.toasts = []
+                        }
+                    }
+            }
             .overlay {
                 ToastStackView(toasts: $model.toasts, config: model.config)
             }

@@ -14,6 +14,8 @@ public class Toaster: ObservableObject {
     }
     
     public func make(@ViewBuilder content: @escaping (String) -> some View) {
-        toasts.append( ToastModel{ id in content(id) } )
+        withAnimation {
+            toasts.append( ToastModel{ id in content(id) } )
+        }
     }
 }

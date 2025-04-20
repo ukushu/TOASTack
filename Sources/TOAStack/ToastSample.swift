@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-public struct Toast1Sample: ToastView {
+public struct ToastSample: ToastView {
     public let delete: () -> ()
     
     @State private var str = UUID().uuidString

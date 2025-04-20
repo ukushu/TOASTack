@@ -107,7 +107,6 @@ extension ToastStackView {
     #endif
 }
 
-
 fileprivate extension View {
     @ViewBuilder
     func gesture<GestureType: Gesture>(
