@@ -1,7 +1,9 @@
 # TOASTack = Toast Stack
 
+```
 git@github.com:ukushu/TOASTack.git
 https://github.com/ukushu/TOASTack.git
+```
 
 # How to use:
 1) apply on your MainView:
