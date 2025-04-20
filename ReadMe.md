@@ -14,7 +14,7 @@ MainView()
 
 2) Make your own design of ToastView or use ToastSample
 
-3) Make your Toast:
+3) Make some toast:
 ```
 Button(action: {
     Toaster.shared.make { id in
