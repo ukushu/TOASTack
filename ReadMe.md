@@ -19,3 +19,6 @@ Button(action: {
     Text(verbatim: "Make toast for me!")
 }
 ```
+And that’s it.
+Seriously — nothing else needed.
+As simple as it gets.
