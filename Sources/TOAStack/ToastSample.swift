@@ -72,8 +72,14 @@ public struct ToastSample2: ToastView {
     @State private var hDragAmount: CGFloat = 0.0
     @State private var opacityAmount: CGFloat = 1.0
     
-    public init(delete: @escaping () -> Void) {
-        self.delete = delete
+    // custom delete logic, in most cases not needed
+    // it's needed only if you want to build own Toaster with own logic :)
+    //public init(delete: @escaping () -> Void) {
+    //    self.delete = delete
+    //}
+    
+    public init(id: String) {
+        self.delete = { Toaster.shared.delete(id: id) }
     }
     
     public var body: some View {

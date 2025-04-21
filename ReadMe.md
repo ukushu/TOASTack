@@ -67,7 +67,7 @@ Toaster.shared.config.edge = .bottom
 
 Lets implement random toast generator:
 ```
-func createRandomToast() {
+func createSomeToast() {
     let title = ["Hello", "Title", "You miss the call", "Banana", "I'm waiting for you", "Why so sad?"]
         .randomElement()!
     let sf = ["bell", "bell.and.waves.left.and.right.fill","music.note","exclamationmark.3","exclamationmark.shield"]
@@ -78,9 +78,9 @@ func createRandomToast() {
     
     Toaster.shared
         .make { id in
-            // custom design of toast
-            ToastSample2(delete: { Toaster.shared.delete(id: id) })
-                // Put data to display into toast
+            // custom design of the toast
+            ToastSample2(id: id)
+                // Put data to display into the toast
                 .environmentObject(toastData)
         }
 }
