@@ -24,7 +24,7 @@ MainView()
 Button(action: {
     // HERE
     Toaster.shared.make { id in
-        ToastSample1(delete: { Toaster.shared.delete(id: id) })
+        ToastSample1(id: id)
     }
     // /HERE
 }) {
