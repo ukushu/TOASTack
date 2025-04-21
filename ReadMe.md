@@ -22,11 +22,9 @@ MainView()
 3) Add toast to the stack of toasts:
 ```swift
 Button(action: {
-    // HERE
     Toaster.shared.make { id in
         ToastSample1(id: id)
     }
-    // /HERE
 }) {
     Text(verbatim: "Make toast for me!")
 }
