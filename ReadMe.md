@@ -1,4 +1,7 @@
 # TOASTack = Toast Stack
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fukushu%2FTOASTack%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ukushu/TOASTack)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fukushu%2FTOASTack%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ukushu/TOASTack)
+
 
 ```
 git@github.com:ukushu/TOASTack.git
