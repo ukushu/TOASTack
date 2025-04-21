@@ -1,8 +1,8 @@
 
 import SwiftUI
 
-public struct ToastModel: Identifiable, Hashable {
-    public static func == (lhs: ToastModel, rhs: ToastModel) -> Bool {
+public struct Toast: Identifiable, Hashable {
+    public static func == (lhs: Toast, rhs: Toast) -> Bool {
         lhs.id == rhs.id
     }
     

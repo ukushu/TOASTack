@@ -4,7 +4,7 @@ import SwiftUI
 public class Toaster: ObservableObject {
     @MainActor public static let shared: Toaster = Toaster()
     public var config: ToastStackConfig = ToastStackConfig()
-    @Published public var toasts: [ToastModel] = []
+    @Published public var toasts: [Toast] = []
     
     private init() { }
     
@@ -15,7 +15,7 @@ public class Toaster: ObservableObject {
     
     public func make(@ViewBuilder content: @escaping (String) -> some View) {
         withAnimation {
-            toasts.append( ToastModel{ id in content(id) } )
+            toasts.append( Toast{ id in content(id) } )
         }
     }
 }

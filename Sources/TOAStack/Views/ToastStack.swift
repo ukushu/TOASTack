@@ -2,11 +2,11 @@
 import SwiftUI
 
 struct ToastStackView: View {
-    @Binding var toasts: [ToastModel]
+    @Binding var toasts: [Toast]
     @State private var expanded: Bool = false
     let config: ToastStackConfig
     
-    init(toasts: Binding<[ToastModel]>, config: ToastStackConfig) {
+    init(toasts: Binding<[Toast]>, config: ToastStackConfig) {
         _toasts = toasts
         self.config = config
     }

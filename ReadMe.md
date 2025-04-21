@@ -19,7 +19,7 @@ MainView()
 
 2) Make your own design of ToastView or use `ToastSample1`, `ToastSample2`
 
-3) Add toast to stack of toasts:
+3) Add toast to the stack of toasts:
 ```
 Button(action: {
     // HERE
@@ -70,7 +70,7 @@ func makeSomeToast() {
         .randomElement()!
     let color = [Color.black, Color.blue, Color.red, Color.brown].randomElement()!
     
-    let toastData = ToastData1(title: title, descr: "Some descr text blablabla bla", sfSymbol: sf, color: color)
+    let toastData = SampleToastData(title: title, descr: "Some descr text blablabla bla", sfSymbol: sf, color: color)
     
     Toaster.shared
         .make { id in
@@ -89,7 +89,8 @@ result:
 
 1) You can create your own toast design
 2) Polish this design for iOS and macOS both
-3) Make Pull Request with this design, so other people can use your toast templates :)
+3) Put your custom design into separated file of "Toast_Designs" directory
+4) Make Pull Request with this design, so other people can use your toast templates :)
 
 
 [1]: https://i.sstatic.net/wJLOGVY8.gif

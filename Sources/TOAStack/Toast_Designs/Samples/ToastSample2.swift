@@ -1,45 +1,8 @@
 
 import SwiftUI
 
-//
-// Sample 1: as simple as possible
-//
-public struct ToastSample1: ToastView {
-    public let delete: () -> ()
-    
-    @State private var str = UUID().uuidString
-    
-    public init(delete: @escaping () -> Void) {
-        self.delete = delete
-    }
-    
-    public var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(height: 50)
-                .overlay {
-                    HStack {
-                        Text(verbatim: str)
-                            .foregroundStyle(Color.black)
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            withAnimation {
-                                delete()
-                            }
-                        }) {
-                            Text(verbatim: "X")
-                        }
-                    }
-                    .padding()
-                }
-        }
-        .shadow(radius: 3)
-    }
-}
 
-public class ToastData1: ObservableObject {
+public class SampleToastData: ObservableObject {
     let title: String
     let descr: String
     let sfSymbol: String
@@ -61,7 +24,7 @@ public class ToastData1: ObservableObject {
 // * dismiss by horizontal swipe
 //
 public struct ToastSample2: ToastView {
-    @EnvironmentObject var data: ToastData1
+    @EnvironmentObject var data: SampleToastData
     
     public let delete: () -> ()
     
@@ -73,7 +36,7 @@ public struct ToastSample2: ToastView {
     @State private var opacityAmount: CGFloat = 1.0
     
     // custom delete logic, in most cases not needed
-    // it's needed only if you want to build own Toaster with own logic :)
+    // it's needed only if you want to build own Toaster with custom logic :)
     //public init(delete: @escaping () -> Void) {
     //    self.delete = delete
     //}
