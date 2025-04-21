@@ -17,14 +17,16 @@ MainView()
     .applyToaster()
 ```
 
-2) Make your own design of ToastView or use ToastSample
+2) Make your own design of ToastView or use `ToastSample1`, `ToastSample2`
 
-3) Make some toast:
+3) Add toast to stack of toasts:
 ```
 Button(action: {
+    // HERE
     Toaster.shared.make { id in
-        ToastSample(delete: { Toaster.shared.delete(id: id) })
+        ToastSample1(delete: { Toaster.shared.delete(id: id) })
     }
+    // /HERE
 }) {
     Text(verbatim: "Make toast for me!")
 }
@@ -34,15 +36,11 @@ And that’s it.
 
 Seriously — nothing else needed.
 
-As simple as it gets.
-
+This is result:
 
 [![enter image description here][1]][1]
 
 [![enter image description here][2]][2]
-
-
-  
 
 
 
@@ -55,19 +53,17 @@ Toaster.shared.config.edge = .bottom
 //... and other
 ```
 
-* Also you can create your own toast design, just look how works ToastSample.
-
 ## How to create more awesome custom designs?
 
-`ToastSample2` from `ToastSample.swift` file shows you how to create:
+Check `ToastSample2` from `ToastSample.swift`. It shows you how to create:
 * custom design
 * animated icon
 * do data insertion into toast
 * dismiss by horizontal swipe in any direction
 
-Lets implement random toast generator:
+Lets implement "random toast generator" using `ToastSample2` view:
 ```
-func createSomeToast() {
+func makeSomeToast() {
     let title = ["Hello", "Title", "You miss the call", "Banana", "I'm waiting for you", "Why so sad?"]
         .randomElement()!
     let sf = ["bell", "bell.and.waves.left.and.right.fill","music.note","exclamationmark.3","exclamationmark.shield"]
@@ -87,6 +83,13 @@ func createSomeToast() {
 ```
 result:
 
+![IMG_8529](https://github.com/user-attachments/assets/682e0018-419b-4f1e-b76a-8c04c0ce81d4)
+
+## How you can help this project?
+
+1) You can create your own toast design
+2) Polish this design for iOS and macOS both
+3) Make Pull Request with this design, so other people can use your toast templates :)
 
 
 [1]: https://i.sstatic.net/wJLOGVY8.gif
