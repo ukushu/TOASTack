@@ -53,8 +53,7 @@ Toaster.shared.config.edge = .bottom
 
 ## How to create more awesome custom designs?
 
-Check out ToastSample2 in ToastSample.swift. 
-It demonstrates how to:
+Check out `ToastSample2.swift`. It demonstrates how to:
 * Populate your toast with dynamic data
 * Create a custom design
 * Add an animated icon
