@@ -12,7 +12,7 @@ Works on:
 
 # How to use:
 1) apply on your MainView:
-```
+```swift
 MainView()
     .applyToaster()
 ```
@@ -20,7 +20,7 @@ MainView()
 2) Make your own design of ToastView or use `ToastSample1`, `ToastSample2`
 
 3) Add toast to the stack of toasts:
-```
+```swift
 Button(action: {
     // HERE
     Toaster.shared.make { id in
@@ -46,7 +46,7 @@ This is result:
 
 ## But also there is also exist configs :)
 
-```
+```swift
 Toaster.shared.config.animation = .easeInOut
 Toaster.shared.config.dimOnToast = true
 Toaster.shared.config.edge = .bottom
@@ -55,14 +55,16 @@ Toaster.shared.config.edge = .bottom
 
 ## How to create more awesome custom designs?
 
-Check `ToastSample2` from `ToastSample.swift`. It shows you how to create:
-* custom design
-* animated icon
-* do data insertion into toast
-* dismiss by horizontal swipe in any direction
+Check out ToastSample2 in ToastSample.swift. 
+It demonstrates how to:
+* Populate your toast with dynamic data
+* Create a custom design
+* Add an animated icon
+* Dismiss the toast with a horizontal swipe in either direction
 
-Lets implement "random toast generator" using `ToastSample2` view:
-```
+Now, let’s implement a “random toast generator” using the `ToastSample2` view:
+
+```swift
 func makeSomeToast() {
     let title = ["Hello", "Title", "You miss the call", "Banana", "I'm waiting for you", "Why so sad?"]
         .randomElement()!
@@ -87,10 +89,19 @@ result:
 
 ## How you can help this project?
 
-1) You can create your own toast design
-2) Polish this design for iOS and macOS both
-3) Put your custom design into separated file of "Toast_Designs" directory
-4) Make Pull Request with this design, so other people can use your toast templates :)
+1) Create your own custom toast design
+2) Polish it for both iOS and macOS
+3) Place your design in the "Toast_Designs" directory as a separate file
+4) Submit a Pull Request — share your toast template with the community! :)
+
+
+
+
+
+
+
+
+
 
 
 [1]: https://i.sstatic.net/wJLOGVY8.gif
