@@ -24,31 +24,34 @@ struct ToastStackView: View {
                 expanded = false
             }
         }
-        .transition(.move(edge: config.edge == .top ? .top : .bottom))
+        .transition( .move(edge: config.edge.asEdge() ) )
     }
     
     @ViewBuilder
     func ToastsView() -> some View {
-        let layout = expanded ? AnyLayout(VStackLayout(spacing: 10)) : AnyLayout (ZStackLayout () )
+        let layout = expanded ? AnyLayout( VStackLayout(spacing: 10) ) : AnyLayout( ZStackLayout() )
             
         layout {
-            ForEach($toasts) { $toast in
+            ForEach(toasts.last(config.displaMax)) { toast in
                 let index = (toasts.firstIndex(where: { $0.id == toast.id }) ?? 0)
                 let scale = scale(toasts.count - index)
                 let offset = offsetY(toasts.count - index)
                 
                 toast.content(toast.id)
-                    .offset(y: expanded ? 0 : (config.edge == .bottom ? offset : -offset ) )
+                    .offset(y: expanded ? 0 : (config.edge == .bottom ? -offset : offset ) )
                     .scaleEffect(expanded ? 1 : scale)
-                    .transition(
-                        .asymmetric(
-                            insertion: .push(from: config.edge == .top ? .top : .bottom).combined(with: .opacity),
-                            removal: .move(edge: config.edge == .top ? .top : .bottom).combined(with: .opacity)
-                        )
-                    )
+                    .transition( config.transition() )
             }
             .onTapGesture { toggleExpanded() }
+            
+            #if os(macOS)
+                if expanded && toasts.count > 1 {
+                    CloseAll()
+                        .transition( config.transition() )
+                }
+            #endif
         }
+        .padding(.top, expanded ? 0 : 28)
         .padding(.horizontal, 20)
         .background {
             Color.clickableAlpha
@@ -57,6 +60,30 @@ struct ToastStackView: View {
         .gesture(swipeGesture, if: config.isSwipeToDismissEnabled)
     }
 }
+
+//
+// Helper Views
+//
+
+extension ToastStackView {
+    func CloseAll() -> some View {
+        Button(action: {
+            withAnimation{
+                toasts = []
+            }
+        }) {
+            Text("Close all")
+                .padding(EdgeInsets(horizontal: 10, vertical: 3))
+        }
+        .buttonStyle(.plain)
+        .background {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(.thickMaterial)
+                .shadow(color: .white, radius: 4)
+        }
+    }
+}
+
 
 //
 // Helpers
@@ -75,7 +102,7 @@ extension ToastStackView {
         
         let scale = min(CGFloat (index) * singleScale, 30)
         
-        return 1 + singleScale - scale
+        return max(0, 1 + singleScale - scale )
     }
     
     func toggleExpanded() {
