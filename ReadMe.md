@@ -39,9 +39,9 @@ Seriously — nothing else needed.
 
 This is result:
 
-[![enter image description here][1]][1]
+![image](https://github.com/user-attachments/assets/5413430b-6817-448d-8bc4-46c7c7b22cc1)
 
-[![enter image description here][2]][2]
+![image](https://github.com/user-attachments/assets/d6342964-1438-48dd-8365-9f7adff9604f)
 
 
 
@@ -98,12 +98,3 @@ result:
 PS: If you need support of watchOS/ VisionOS - feel free to make Pull Request with edit of "Package.swift" after testing on real device.
 
 
-
-
-
-
-
-
-
-[1]: https://i.sstatic.net/wJLOGVY8.gif
-[2]: https://i.sstatic.net/V0d4C4It.gif
