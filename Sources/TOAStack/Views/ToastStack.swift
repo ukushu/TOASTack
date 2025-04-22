@@ -32,6 +32,10 @@ struct ToastStackView: View {
         let layout = expanded ? AnyLayout( VStackLayout(spacing: 10) ) : AnyLayout( ZStackLayout() )
             
         layout {
+            if config.edge == .bottom {
+                macOSCloseAll()
+            }
+            
             ForEach(toasts.last(config.displaMax)) { toast in
                 let index = (toasts.firstIndex(where: { $0.id == toast.id }) ?? 0)
                 let scale = scale(toasts.count - index)
@@ -44,14 +48,11 @@ struct ToastStackView: View {
             }
             .onTapGesture { toggleExpanded() }
             
-            #if os(macOS)
-                if expanded && toasts.count > 1 {
-                    CloseAll()
-                        .transition( config.transition() )
-                }
-            #endif
+            if config.edge == .top {
+                macOSCloseAll()
+            }
         }
-        .padding(.top, expanded ? 0 : 28)
+        .padding(.vertical, expanded ? 0 : 28)
         .padding(.horizontal, 20)
         .background {
             Color.clickableAlpha
@@ -66,21 +67,27 @@ struct ToastStackView: View {
 //
 
 extension ToastStackView {
-    func CloseAll() -> some View {
-        Button(action: {
-            withAnimation{
-                toasts = []
+    @ViewBuilder
+    func macOSCloseAll() -> some View {
+        #if os(macOS)
+            if expanded && toasts.count > 1 {
+                Button(action: {
+                    withAnimation{
+                        toasts = []
+                    }
+                }) {
+                    Text("Close all")
+                        .padding(EdgeInsets(horizontal: 10, vertical: 3))
+                }
+                .buttonStyle(.plain)
+                .background {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.thickMaterial)
+                        .shadow(color: .white, radius: 4)
+                }
+                .transition( config.transition() )
             }
-        }) {
-            Text("Close all")
-                .padding(EdgeInsets(horizontal: 10, vertical: 3))
-        }
-        .buttonStyle(.plain)
-        .background {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.thickMaterial)
-                .shadow(color: .white, radius: 4)
-        }
+        #endif
     }
 }
 

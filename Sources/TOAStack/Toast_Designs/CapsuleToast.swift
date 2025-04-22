@@ -37,11 +37,11 @@ public struct CapsuleToast: ToastView {
             
             VStack(alignment: .leading) {
                 Text(verbatim: data.title)
-                    .font( .custom("SF Pro", size: ThisDevice.Os.isIOS ? 18 : 14).weight(.bold) )
+                    .font( .system(size: ThisDevice.Os.isIOS ? 16 : 14).weight(.bold) )
                 
                 if let descr = data.descr {
                     Text(verbatim: descr)
-                        .font( .custom("SF Pro", size: ThisDevice.Os.isIOS ? 16 : 12).weight(.light) )
+                        .font( .system(size: ThisDevice.Os.isIOS ? 14 : 12).weight(.light) )
                         .multilineTextAlignment(.leading)
                         .lineLimit(5)
                         .opacity(0.7)
@@ -89,8 +89,13 @@ extension CapsuleToast {
                     Circle()
                         .fill(textColor)
                 }
+                .padding(6) // pixelhuting fix
+                .background {
+                    Color.clickableAlpha
+                }
         }
         .buttonStyle(.plain)
+        .padding(-6) // pixelhuting fix
     }
     
     func dismiss() {
