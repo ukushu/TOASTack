@@ -1,5 +1,6 @@
 
 import SwiftUI
+import Essentials
 
 public class CapsuleToastData: ObservableObject {
     let title: String
@@ -36,11 +37,11 @@ public struct CapsuleToast: ToastView {
             
             VStack(alignment: .leading) {
                 Text(verbatim: data.title)
-                    .font(.custom("SF Pro", size: 14))
-                    .bold()
+                    .font( .custom("SF Pro", size: ThisDevice.Os.isIOS ? 18 : 14).weight(.bold) )
                 
                 if let descr = data.descr {
                     Text(verbatim: descr)
+                        .font( .custom("SF Pro", size: ThisDevice.Os.isIOS ? 16 : 12).weight(.light) )
                         .multilineTextAlignment(.leading)
                         .lineLimit(5)
                         .opacity(0.7)
@@ -53,7 +54,7 @@ public struct CapsuleToast: ToastView {
             CloseBtn()
         }
         .padding(EdgeInsets(horizontal: 10, vertical: 7))
-        .frame(height: 40)
+        .frame(height: ThisDevice.Os.isIOS ? 50 : 40)
         .background {
             RoundedRectangle(cornerRadius: 25)
                 .fill(bgColor)
