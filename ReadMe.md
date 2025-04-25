@@ -96,8 +96,8 @@ result:
 * iOS/macOS polished
 * Title
 * Optional description (displayed in one line only)
-* Optional SF Symbol
-* Close button in right corner
+* Optional SF Symbol (displayed on the left corner)
+* Close button (displayed on the right corner)
 
 
 
