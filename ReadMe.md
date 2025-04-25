@@ -99,6 +99,13 @@ result:
 * Optional SF Symbol (displayed on the left corner)
 * Close button (displayed on the right corner)
 
+## CRToast:
+![image](https://github.com/user-attachments/assets/6eae84d9-76dc-463f-94d0-9b03aff38721)
+* Multiline title
+* Optional SF Symbol (displayed on the left corner)
+* Close button (displayed on the right corner)
+* Toast color
+
 
 
 # How you can help this project?
