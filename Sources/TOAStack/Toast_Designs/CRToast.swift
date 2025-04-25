@@ -16,35 +16,38 @@ public class CRToastData: ObservableObject {
     }
 }
 
-struct CRToast: View {
+public struct CRToast: View {
     @EnvironmentObject var data: CRToastData
     public let delete: () -> ()
     
-    var body: some View {
+    public init(id: String) {
+        self.delete = { Toaster.shared.delete(id: id) }
+    }
+    
+    public var body: some View {
         HStack(alignment: .center, spacing: 12) {
             Icon()
             
             Text(data.title)
                 .font(Font.caption)
-                .foregroundColor(.black)
+                .lineLimit(4)
             
-            Spacer(minLength: 10)
+            Spacer(minLength: 0)
             
             CloseBtn()
         }
-        .padding()
+        .padding(EdgeInsets(horizontal: 10, vertical: 5))
         .frame(minWidth: 0, maxWidth: data.width)
-        .background(.white)
-        .cornerRadius(8)
-        .overlay(
+        .background {
             RoundedRectangle(cornerRadius: 8)
-                .opacity(0.6)
-                
-        )
-        .padding(.horizontal, 16)
+                .fill(.thinMaterial)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(data.color, lineWidth: 1.5)
+                }
+        }
     }
 }
-
 
 extension CRToast {
     @ViewBuilder
@@ -59,10 +62,20 @@ extension CRToast {
         Button(action: {
             dismiss()
         }) {
-            Text.sfIcon("xmark", size: 20)
+            Text.sfIcon("xmark", size: 16)
                 .foregroundColor(data.color)
+                .padding(6) // pixelhuting fix
+                .background {
+                    Color.clickableAlpha
+                }
         }
         .buttonStyle(.plain)
         .padding(-6) // pixelhuting fix
+    }
+    
+    func dismiss() {
+        withAnimation {
+            delete()
+        }
     }
 }
