@@ -39,9 +39,10 @@ Seriously — nothing else needed.
 
 This is result:
 
-[![enter image description here][1]][1]
+![1](https://github.com/user-attachments/assets/cc50cab2-c00a-4e9a-ade0-115fdcd239db)
 
-[![enter image description here][2]][2]
+![2](https://github.com/user-attachments/assets/f759cb22-3b89-446a-8e40-2ec3a64a1cd8)
+
 
 
 
@@ -87,7 +88,20 @@ result:
 
 ![IMG_8529](https://github.com/user-attachments/assets/682e0018-419b-4f1e-b76a-8c04c0ce81d4)
 
-## How you can help this project?
+# Current Toast design templates:
+
+## CapsuleToast:
+<img width="340" alt="image" src="https://github.com/user-attachments/assets/660f98ac-ed21-4acb-9cb8-22eba688fee7" />
+
+* iOS/macOS polished
+* Title
+* Optional description (displayed in one line only)
+* Optional SF Symbol (displayed on the left corner)
+* Close button (displayed on the right corner)
+
+
+
+# How you can help this project?
 
 1) Create your own custom toast design
 2) Polish it for both iOS and macOS
@@ -98,12 +112,3 @@ result:
 PS: If you need support of watchOS/ VisionOS - feel free to make Pull Request with edit of "Package.swift" after testing on real device.
 
 
-
-
-
-
-
-
-
-[1]: https://i.sstatic.net/wJLOGVY8.gif
-[2]: https://i.sstatic.net/V0d4C4It.gif
