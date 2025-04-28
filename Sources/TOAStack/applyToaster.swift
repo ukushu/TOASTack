@@ -1,6 +1,5 @@
 
 import SwiftUI
-import MoreSwiftUI
 
 public extension View {
     func applyToaster() -> some View {
@@ -14,7 +13,7 @@ struct ToasterMod: ViewModifier {
     func body(content: Content) -> some View {
         content
             .if(model.config.dimOnToast) {
-                $0.makeFullyIntaractable()
+                $0.background{ Color.clickableAlpha }
                     .overlay {
                         Rectangle()
                             .fill( .black.opacity(model.toasts.count > 0 ? 0.5 : 0) )

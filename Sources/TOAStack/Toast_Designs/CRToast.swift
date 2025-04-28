@@ -1,6 +1,5 @@
 
 import SwiftUI
-import MoreSwiftUI
 
 public class CRToastData: ObservableObject {
     let title: String

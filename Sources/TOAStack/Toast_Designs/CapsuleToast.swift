@@ -1,6 +1,5 @@
 
 import SwiftUI
-import Essentials
 
 public class CapsuleToastData: ObservableObject {
     let title: String

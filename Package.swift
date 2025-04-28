@@ -13,8 +13,8 @@ let package = Package(
             targets: ["TOASTack"]),
     ],
     dependencies: [
-        .package(url: "https://gitlab.com/sergiy.vynnychenko/essentials.git", branch: "master"),
-        .package(url: "https://gitlab.com/UKS/moreswiftui.git", branch: "main"),
+//        .package(url: "https://gitlab.com/sergiy.vynnychenko/essentials.git", branch: "master"),
+//        .package(url: "https://gitlab.com/UKS/moreswiftui.git", branch: "main"),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -24,8 +24,8 @@ let package = Package(
         .target(
             name: "TOASTack",
             dependencies: [
-                .product(name: "Essentials", package: "essentials"),
-                .product(name: "MoreSwiftUI", package: "moreswiftui")
+//                .product(name: "Essentials", package: "essentials"),
+//                .product(name: "MoreSwiftUI", package: "moreswiftui")
             ]
         )
     ]

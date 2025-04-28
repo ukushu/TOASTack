@@ -1,7 +1,6 @@
 
 import SwiftUI
 
-
 public class SampleToastData: ObservableObject {
     let title: String
     let descr: String
