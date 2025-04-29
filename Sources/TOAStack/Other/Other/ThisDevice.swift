@@ -4,7 +4,7 @@ import SwiftUI
 
 struct ThisDevice {
     struct Os {
-        public static var isMacOS: Bool {
+        static var isMacOS: Bool {
             #if os(macOS)
             return true
             #else
@@ -12,7 +12,7 @@ struct ThisDevice {
             #endif
         }
         
-        public static var isIOS: Bool {
+        static var isIOS: Bool {
             #if os(iOS)
             return true
             #else

@@ -1,6 +1,6 @@
 
 // Fix of horrible swift naming
-public extension Array {
+extension Array {
     func first(_ count: Int) -> ArraySlice<Element> {
         return self.prefix(count)
     }
