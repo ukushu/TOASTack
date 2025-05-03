@@ -115,6 +115,10 @@ result:
 3) Place your design in the "Toast_Designs" directory as a separate file
 4) Submit a Pull Request — share your toast template with the community! :)
 
+OR
+
+You can improve existed designs :) Feel free to do this as you want :)
+
 
 PS: If you need support of watchOS/ VisionOS - feel free to make Pull Request with edit of "Package.swift" after testing on real device.
 
