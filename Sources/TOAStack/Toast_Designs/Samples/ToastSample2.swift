@@ -2,10 +2,10 @@
 import SwiftUI
 
 public class SampleToastData: ObservableObject {
-    let title: String
-    let descr: String
-    let sfSymbol: String
-    let color: Color
+    public let title: String
+    public let descr: String
+    public let sfSymbol: String
+    public let color: Color
     
     public init(title: String, descr: String, sfSymbol: String, color: Color) {
         self.title = title
