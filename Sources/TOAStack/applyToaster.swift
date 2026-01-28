@@ -3,7 +3,7 @@ import SwiftUI
 
 public enum ToasterMode {
     case overlay
-    case vStack(size: CGSize, topAlign: Bool)
+    case vStack(size: CGSize, positionTop: Bool)
 }
 
 public extension View {
@@ -13,7 +13,7 @@ public extension View {
         case .overlay:
             self.modifier(ToasterOverlayMod())
         case .vStack(let size, let topAlign):
-            self.modifier(ToasterVStackMod(size: size, topAlign: topAlign))
+            self.modifier(ToasterVStackMod(size: size, positionTop: positionTop))
         }
     }
 }
@@ -45,24 +45,20 @@ struct ToasterOverlayMod: ViewModifier {
 struct ToasterVStackMod: ViewModifier {
     @ObservedObject private var model = Toaster.shared
     let size: CGSize
-    let topAlign: Bool
+    let positionTop: Bool
     
     func body(content: Content) -> some View {
-        VStack {
-            if topAlign {
-                VStack {
-                    ToastStackView(toasts: $model.toasts, config: model.config)
-                        .frame(width: size.width , height: size.height)
-                    
-                    content
-                }
+        VStack(spacing: 0) {
+            if positionTop {
+                ToastStackView(toasts: $model.toasts, config: model.config)
+                    .frame(width: size.width , height: size.height)
+                
+                content
             } else {
-                VStack {
-                    content
-                    
-                    ToastStackView(toasts: $model.toasts, config: model.config)
-                        .frame(width: size.width , height: size.height)
-                }
+                content
+                
+                ToastStackView(toasts: $model.toasts, config: model.config)
+                    .frame(width: size.width , height: size.height)
             }
         }
     }
