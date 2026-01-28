@@ -12,7 +12,7 @@ public extension View {
         switch mode {
         case .overlay:
             self.modifier(ToasterOverlayMod())
-        case .vStack(let size, let topAlign):
+        case .vStack(let size, let positionTop):
             self.modifier(ToasterVStackMod(size: size, positionTop: positionTop))
         }
     }
