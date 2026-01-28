@@ -11,6 +11,7 @@ struct ToastStackView: View {
         _toasts = toasts
         self.config = config
         self.expanded = config.expandedOnStart
+        self.fillNeeded = fillNeeded
     }
     
     var body: some View {
