@@ -5,8 +5,9 @@ struct ToastStackView: View {
     @Binding var toasts: [Toast]
     @State private var expanded: Bool = false
     let config: ToastStackConfig
+    var fillNeeded: Bool
     
-    init(toasts: Binding<[Toast]>, config: ToastStackConfig) {
+    init(toasts: Binding<[Toast]>, config: ToastStackConfig, fillNeeded: Bool = true) {
         _toasts = toasts
         self.config = config
         self.expanded = config.expandedOnStart
@@ -14,7 +15,9 @@ struct ToastStackView: View {
     
     var body: some View {
         ZStack(alignment: config.edge == .top ? .top : .bottom) {
-            Color.clear
+            if fillNeeded {
+                Color.clear
+            }
             
             ToastsView()
         }

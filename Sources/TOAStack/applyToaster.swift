@@ -15,7 +15,6 @@ public extension View {
         case .vStack:
             self.modifier(ToasterVStackMod())
         }
-        
     }
 }
 
@@ -59,7 +58,7 @@ struct ToasterVStackMod: ViewModifier {
                 VStack {
                     content
                     
-                    ToastStackView(toasts: $model.toasts, config: model.config)
+                    ToastStackView(toasts: $model.toasts, config: model.config, fillNeeded: false)
                 }
             default:
                 Text("configure your Toaster as .top or .bottom edge value")
