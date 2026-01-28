@@ -9,6 +9,7 @@ struct ToastStackView: View {
     init(toasts: Binding<[Toast]>, config: ToastStackConfig) {
         _toasts = toasts
         self.config = config
+        self.expanded = config.expandedOnStart
     }
     
     var body: some View {
@@ -20,8 +21,10 @@ struct ToastStackView: View {
         .animation(config.animation, value: expanded)
         .padding(.vertical, config.baseOffset)
         .onChange(of: toasts) { _ in
-            if toasts.count == 0 {
-                expanded = false
+            if config.expandDisableOnZero {
+                if toasts.count == 0 {
+                    expanded = false
+                }
             }
         }
         .transition( .move(edge: config.edge.asEdge() ) )
@@ -36,7 +39,7 @@ struct ToastStackView: View {
                 macOSCloseAll()
             }
             
-            ForEach(toasts.last(config.displaMax)) { toast in
+            ForEach(toasts.last(config.maxToastsToDisplay)) { toast in
                 let index = (toasts.firstIndex(where: { $0.id == toast.id }) ?? 0)
                 let scale = scale(toasts.count - index)
                 let offset = offsetY(toasts.count - index)

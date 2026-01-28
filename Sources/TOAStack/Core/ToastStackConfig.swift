@@ -7,21 +7,29 @@ public struct ToastStackConfig {
     public var isSwipeToDismissEnabled: Bool
     public var baseOffset: CGFloat
     public var dimOnToast: Bool
-    public var displaMax: Int
+    public var maxToastsToDisplay: Int
+    
+    public var expandedOnStart: Bool
+    public var expandDisableOnZero: Bool
     
     public init(animation: Animation = .bouncy(duration: 0.4),
                 edge: VerticalAlignment = .top,
                 isSwipeToDismissEnabled: Bool = true,
                 baseOffset: CGFloat = 10,
                 dimOnToast: Bool = false,
-                displaMax: Int = 5
+                maxToastsToDisplay: Int = 5,
+                expandedOnStart: Bool = false,
+                expandDisableOnZero: Bool = true
     ) {
         self.animation = animation
         self.edge = edge
         self.isSwipeToDismissEnabled = isSwipeToDismissEnabled
         self.baseOffset = baseOffset
         self.dimOnToast = dimOnToast
-        self.displaMax = displaMax
+        self.maxToastsToDisplay = maxToastsToDisplay
+        
+        self.expandedOnStart = expandedOnStart
+        self.expandDisableOnZero = expandDisableOnZero
     }
     
     func transition() -> AnyTransition {
